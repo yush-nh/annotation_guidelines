@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_13_054606) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_13_072025) do
+  create_table "annotation_guidelines", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_annotation_guidelines_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -22,4 +31,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_13_054606) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "annotation_guidelines", "users"
 end
