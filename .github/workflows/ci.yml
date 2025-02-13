@@ -73,10 +73,6 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
-          bundler-cache: true
-
-      - name: Clear cache
-        run: rm -rf tmp/cache && bin/rails tmp:clear
 
       - name: Run tests
         env:
