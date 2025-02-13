@@ -74,6 +74,9 @@ jobs:
         with:
           ruby-version: .ruby-version
 
+      - name: Install gems
+        run: bundle install --jobs 4
+
       - name: Run tests
         env:
           RAILS_ENV: test
