@@ -75,6 +75,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Clear cache
+        run: rm -rf tmp/cache && bin/rails tmp:clear
+
       - name: Run tests
         env:
           RAILS_ENV: test
