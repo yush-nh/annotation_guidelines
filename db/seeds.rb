@@ -1,6 +1,6 @@
 user = User.create!(email: 'user1@example.com', password: 'password')
 
-10.times do |i|
+30.times do |i|
   AnnotationGuideline.create!(
     user_id: user.id,
     title: "Guideline#{i + 1}",
