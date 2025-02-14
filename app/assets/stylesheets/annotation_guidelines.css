@@ -1,3 +1,10 @@
+.guideline-body {
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .pagination {
   margin-top: 20px;
   text-align: center;
