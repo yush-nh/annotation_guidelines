@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "annotation_guidelines#index"
+
+  resources :annotation_guidelines, only: %i[index new create]
 end
