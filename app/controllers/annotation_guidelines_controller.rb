@@ -5,6 +5,10 @@ class AnnotationGuidelinesController < ApplicationController
                                                 .page(params[:page])
   end
 
+  def show
+    @annotation_guideline = AnnotationGuideline.find(params[:id])
+  end
+
   def new
     @annotation_guideline = current_user.annotation_guidelines.new()
   end
