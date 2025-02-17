@@ -11,7 +11,20 @@ for (const event of events) {
       new EasyMDE({
         element: textArea,
         spellChecker: false,
-        toolbar: ["bold", "italic", "heading", "|", "quote", "code", "unordered-list", "ordered-list", "|", "preview", "side-by-side", "fullscreen"]
+        toolbar: [
+          "bold",
+          "italic",
+          "heading",
+          "|",
+          "quote",
+          "code",
+          "unordered-list",
+          "ordered-list",
+          "|",
+          "preview",
+          "side-by-side",
+          "fullscreen"
+        ]
       })
     }
   })
