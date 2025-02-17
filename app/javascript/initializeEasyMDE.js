@@ -2,7 +2,7 @@ const events = ['turbo:load', 'turbo:render']
 
 for (const event of events) {
   document.addEventListener(event, function () {
-    const textArea = document.getElementById("annotation_guideline_textarea")
+    const textArea = document.querySelector(".annotation_guideline_textarea")
 
     if (textArea && !textArea.dataset.easyMDEInitialized) {
       // Set flag to avoid double initialization.
