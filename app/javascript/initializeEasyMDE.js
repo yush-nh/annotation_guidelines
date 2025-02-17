@@ -1,7 +1,7 @@
 const events = ['turbo:load', 'turbo:render']
 
 for (const event of events) {
-  document.addEventListener(event, function () {
+  document.addEventListener(event, () => {
     const textArea = document.querySelector(".annotation_guideline_textarea")
 
     if (textArea && !textArea.dataset.easyMDEInitialized) {
