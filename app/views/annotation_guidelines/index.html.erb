@@ -14,7 +14,7 @@
   <tbody>
     <% @annotation_guidelines.each do |guideline| %>
       <tr>
-        <td><%= guideline.title %></td>
+        <td><%= link_to guideline.title, annotation_guideline_path(guideline) %></td>
         <td class="guideline-body"><%= guideline.body %></td>
         <td><%= guideline.updated_at %></td>
         <td><%= guideline.user.email %></td>
