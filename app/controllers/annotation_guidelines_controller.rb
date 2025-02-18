@@ -1,5 +1,5 @@
 class AnnotationGuidelinesController < ApplicationController
-  before_action :set_annotation_guideline, only: %i[edit update]
+  before_action :set_annotation_guideline, only: %i[edit update destroy]
 
   def index
     @annotation_guidelines = AnnotationGuideline.includes(:user)
@@ -33,6 +33,11 @@ class AnnotationGuidelinesController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @annotation_guideline.destroy
+    redirect_to annotation_guidelines_path, notice: "Annotation Guideline was successfully deleted."
   end
 
   private
