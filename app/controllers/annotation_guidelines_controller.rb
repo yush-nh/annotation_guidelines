@@ -1,4 +1,6 @@
 class AnnotationGuidelinesController < ApplicationController
+  before_action :set_annotation_guideline, only: %i[edit update]
+
   def index
     @annotation_guidelines = AnnotationGuideline.includes(:user)
                                                 .order(updated_at: :desc)
@@ -23,13 +25,9 @@ class AnnotationGuidelinesController < ApplicationController
     end
   end
 
-  def edit
-    @annotation_guideline = current_user.annotation_guidelines.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @annotation_guideline = current_user.annotation_guidelines.find(params[:id])
-
     if @annotation_guideline.update(annotation_guideline_params)
       redirect_to annotation_guideline_path(@annotation_guideline), notice: "Annotation Guideline was successfully updated."
     else
@@ -38,6 +36,10 @@ class AnnotationGuidelinesController < ApplicationController
   end
 
   private
+
+  def set_annotation_guideline
+    @annotation_guideline = current_user.annotation_guidelines.find(params[:id])
+  end
 
   def annotation_guideline_params
     params.require(:annotation_guideline).permit(:title, :body)
