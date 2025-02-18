@@ -5,4 +5,5 @@
 </div>
 
 <%= link_to 'Edit', edit_annotation_guideline_path(@annotation_guideline) %>
+<%= link_to 'Delete', @annotation_guideline, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 <%= link_to 'Back', :back %>
