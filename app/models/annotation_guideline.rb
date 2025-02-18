@@ -8,6 +8,6 @@ class AnnotationGuideline < ApplicationRecord
       body,
       options: { render: { unsafe: true } },
       plugins: { syntax_highlighter: { theme: "InspiredGitHub" } }
-    )
+    ).html_safe
   end
 end
