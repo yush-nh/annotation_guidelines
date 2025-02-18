@@ -1,0 +1,9 @@
+<h1><%= @note.title %></h1>
+
+<div>
+  <%= @note.html_body %>
+</div>
+
+<%= link_to 'Edit', edit_note_path(@note) %>
+<%= link_to 'Delete', @note, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+<%= link_to 'Back', :back %>

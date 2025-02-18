@@ -1,4 +1,4 @@
-class AnnotationGuideline < ApplicationRecord
+class Note < ApplicationRecord
   belongs_to :user
 
   validates :title, presence: :true, length: { maximum: 255 }

@@ -1,0 +1,27 @@
+<%= form_with(model: note) do |f| %>
+  <% if note.errors.any? %>
+    <div class="error-messages">
+      <h2><%= pluralize(note.errors.count, "error") %> prevented this form from being saved:</h2>
+      <ul>
+        <% note.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "note_textarea" %>
+  </div>
+
+  <div>
+    <%= f.submit action_name == "new" ? "Create" : "Update" %>
+  </div>
+<% end %>
+
