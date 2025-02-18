@@ -23,6 +23,20 @@ class AnnotationGuidelinesController < ApplicationController
     end
   end
 
+  def edit
+    @annotation_guideline = current_user.annotation_guidelines.find(params[:id])
+  end
+
+  def update
+    @annotation_guideline = current_user.annotation_guidelines.find(params[:id])
+
+    if @annotation_guideline.update(annotation_guideline_params)
+      redirect_to annotation_guideline_path(@annotation_guideline), notice: "Annotation Guideline was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def annotation_guideline_params
