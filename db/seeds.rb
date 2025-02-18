@@ -1,12 +1,10 @@
 user = User.create!(email: 'user1@example.com', password: 'password')
 
 30.times do |i|
-  AnnotationGuideline.create!(
+  Note.create!(
     user_id: user.id,
-    title: "Guideline#{i + 1}",
+    title: "Guideline #{i + 1}",
     body: <<~MD
-      # Guideline#{i + 1}
-
       ## Summary
       Guideline#{i + 1} description. Annotate according to this guideline.
 
