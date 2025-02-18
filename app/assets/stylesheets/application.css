@@ -9,6 +9,44 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  margin-bottom: 60px;
+}
+
+header {
+  background-color: #4CAF50;
+  padding: 20px;
+
+  a {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+  color: white;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
