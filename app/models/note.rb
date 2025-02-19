@@ -1,6 +1,7 @@
 class Note < ApplicationRecord
   belongs_to :user
 
+  before_create :set_id
   before_validation :set_default_title, if: -> { title.blank? && body.present? }
 
   validates :title, length: { maximum: 255 }
@@ -18,6 +19,10 @@ class Note < ApplicationRecord
   end
 
   private
+
+  def set_id
+    self.id = SecureRandom.uuid
+  end
 
   def set_default_title
     self.title = "no title"
