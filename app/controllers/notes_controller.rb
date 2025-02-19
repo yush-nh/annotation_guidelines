@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_note, only: %i[edit update destroy]
 
   def index
