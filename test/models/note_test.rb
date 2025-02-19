@@ -5,7 +5,7 @@ class NoteTest < ActiveSupport::TestCase
     @user = users(:one)
   end
 
-  test "valid note should be saved" do
+  test "should save when title and body present" do
     assert_difference "Note.count", 1 do
       Note.create(
         title: "Note1",
@@ -15,14 +15,44 @@ class NoteTest < ActiveSupport::TestCase
     end
   end
 
-  test "without title should not be saved" do
-    note = Note.new(
-      title: nil,
-      body: "# Note without title",
-      user_id: @user.id
-    )
+  test "should save when title present, body empty" do
+    assert_difference "Note.count", 1 do
+      Note.create(
+        title: "Note1",
+        body: "",
+        user_id: @user.id
+      )
+    end
+  end
 
-    assert note.invalid?
+  test "should save when title empty, body present" do
+    assert_difference "Note.count", 1 do
+      Note.create(
+        title: "",
+        body: "# Note 1",
+        user_id: @user.id
+      )
+    end
+  end
+
+  test "should not save when title and body both empty" do
+    assert_difference "Note.count", 0 do
+      Note.create(
+        title: "",
+        body: "",
+        user_id: @user.id
+      )
+    end
+  end
+
+  test "should set default title when title empty" do
+    note = Note.create(
+            title: "",
+            body: "# Note 1",
+            user_id: @user.id
+          )
+
+    assert_equal "no title", note.title
   end
 
   test "title exceeding 255 chararcters should not be saved" do
