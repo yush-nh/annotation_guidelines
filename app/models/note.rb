@@ -1,7 +1,7 @@
 class Note < ApplicationRecord
   belongs_to :user
 
-  before_create :set_id
+  before_create :set_uuid
   before_save :set_default_title
 
   validates :title, length: { maximum: 255 }
@@ -20,8 +20,8 @@ class Note < ApplicationRecord
 
   private
 
-  def set_id
-    self.id = SecureRandom.uuid
+  def set_uuid
+    self.uuid = SecureRandom.uuid
   end
 
   def set_default_title
