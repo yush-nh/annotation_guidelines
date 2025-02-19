@@ -1,6 +1,7 @@
 class Note < ApplicationRecord
   belongs_to :user
 
+  before_create :set_uuid
   before_save :set_default_title
 
   validates :title, length: { maximum: 255 }
@@ -17,7 +18,16 @@ class Note < ApplicationRecord
     ).html_safe
   end
 
+  # Override `to_param` to use UUID in the URL instead of the default ID
+  def to_param
+    uuid
+  end
+
   private
+
+  def set_uuid
+    self.uuid = SecureRandom.uuid
+  end
 
   def set_default_title
     if title.blank? && body.present?
