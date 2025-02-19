@@ -6,7 +6,7 @@ class NotesController < ApplicationController
   end
 
   def show
-    @note = Note.find(params[:id])
+    @note = Note.find_by!(uuid: params[:id])
   end
 
   def new
@@ -41,7 +41,7 @@ class NotesController < ApplicationController
   private
 
   def set_note
-    @note = current_user.notes.find(params[:id])
+    @note = current_user.notes.find_by!(uuid: params[:id])
   end
 
   def note_params

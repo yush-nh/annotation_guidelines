@@ -18,6 +18,11 @@ class Note < ApplicationRecord
     ).html_safe
   end
 
+  # Override `to_param` to use UUID in the URL instead of the default ID
+  def to_param
+    uuid
+  end
+
   private
 
   def set_uuid
