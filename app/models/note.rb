@@ -4,7 +4,7 @@ class Note < ApplicationRecord
   before_save :set_default_title
 
   validates :title, length: { maximum: 255 }
-  validate :title_and_body_cannot_both_empty
+  validate :must_have_title_or_body
 
   # Commonmarker ensures that potentially dangerous tags like <script> are already sanitized.
   # However, Brakeman still raises a Cross-Site Scripting warning when the raw output of Commonmarker.to_html is used in views.
@@ -25,7 +25,7 @@ class Note < ApplicationRecord
     end
   end
 
-  def title_and_body_cannot_both_empty
+  def must_have_title_or_body
     if title.blank? && body.blank?
       errors.add(:base, "Title and body cannot both be empty.")
     end
