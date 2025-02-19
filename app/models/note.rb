@@ -1,7 +1,7 @@
 class Note < ApplicationRecord
   belongs_to :user
 
-  before_save :set_default_title, if: -> { title.blank? && body.present? }
+  before_save :set_default_title
 
   validates :title, length: { maximum: 255 }
   validate :title_and_body_cannot_both_empty
@@ -20,7 +20,9 @@ class Note < ApplicationRecord
   private
 
   def set_default_title
-    self.title = "no title"
+    if title.blank? && body.present?
+      self.title = "no title"
+    end
   end
 
   def title_and_body_cannot_both_empty
