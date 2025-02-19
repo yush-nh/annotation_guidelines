@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_18_075402) do
-  create_table "notes", force: :cascade do |t|
+ActiveRecord::Schema[8.0].define(version: 2025_02_19_020426) do
+  create_table "notes", id: :string, force: :cascade do |t|
     t.string "title", null: false
     t.text "body"
     t.integer "user_id", null: false
