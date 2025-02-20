@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   resources :notes
   devise_for :users
+  get "/users/:email" => "users#show", :constraints => { email: /.+@.+\..*/ }, as: "user"
 end
