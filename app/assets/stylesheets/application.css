@@ -39,6 +39,16 @@ header {
 
   .account-menu {
     margin-right: 40px;
+
+    ul {
+      margin: 0;
+      display: flex;
+      list-style: none;
+
+      li {
+        margin: 0px 10px;
+      }
+    }
   }
 }
 

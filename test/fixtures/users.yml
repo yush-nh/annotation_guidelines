@@ -8,3 +8,4 @@ one:
   id: 1
   email: test1@example.com
   encrypted_password: password
+  confirmed_at: <%= Time.now %>

@@ -1,4 +1,4 @@
-user = User.create!(email: 'user1@example.com', password: 'password')
+user = User.create!(email: 'user1@example.com', password: 'password', confirmed_at: Time.now)
 
 30.times do |i|
   Note.create!(
