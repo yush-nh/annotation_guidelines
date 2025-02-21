@@ -21,16 +21,14 @@ class Api::V1::NotesController < ApplicationController
 
   # PUT api/v1/notes/:uuid
   def update
-    note = current_user.notes.find_by!(uuid: params[:id])
-    note.update!(note_params)
+    current_note.update!(note_params)
 
     render json: { message: "Note '#{params[:id]}' was successfully updated." }, status: :ok
   end
 
   # DELETE api/v1/notes/:uuid
   def destroy
-    note = current_user.notes.find_by!(uuid: params[:id])
-    note.destroy
+    current_note.destroy
 
     render json: { message: "Note '#{params[:id]}' was successfully deleted." }, status: :ok
   end
@@ -39,6 +37,10 @@ class Api::V1::NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(:title, :body)
+  end
+
+  def current_note
+    current_user.notes.find_by!(uuid: params[:id])
   end
 
   def render_standard_error(e)
