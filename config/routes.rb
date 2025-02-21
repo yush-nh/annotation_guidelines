@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   root "notes#index"
 
   resources :notes
+  resources :access_tokens, only: %i[create destroy]
 
   namespace :api do
     namespace :v1 do
