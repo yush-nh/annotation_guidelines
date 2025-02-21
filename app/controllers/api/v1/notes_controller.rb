@@ -27,6 +27,14 @@ class Api::V1::NotesController < ApplicationController
     render json: { message: "Note '#{params[:id]}' was successfully updated." }, status: :ok
   end
 
+  # DELETE api/v1/notes/:uuid
+  def destroy
+    note = current_user.notes.find_by!(uuid: params[:id])
+    note.destroy
+
+    render json: { message: "Note '#{params[:id]}' was successfully deleted." }, status: :ok
+  end
+
   private
 
   def note_params

@@ -30,6 +30,12 @@ class Api::V1::NotesControllerTest < ActionDispatch::IntegrationTest
     assert_equal "updated", @note.body
   end
 
+  test "DELETE_should_delete_note" do
+    assert_difference("Note.count", -1) do
+      delete "/api/v1/notes/#{@note.uuid}"
+    end
+  end
+
   # Exceptions Test
 
   test "should_return_422_when_record_invalid" do
