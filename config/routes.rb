@@ -16,6 +16,13 @@ Rails.application.routes.draw do
   root "notes#index"
 
   resources :notes
+
+  namespace :api do
+    namespace :v1 do
+      resources :notes, only: :create
+    end
+  end
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     passwords: "users/passwords"
