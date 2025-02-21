@@ -16,6 +16,14 @@ Rails.application.routes.draw do
   root "notes#index"
 
   resources :notes
+  resources :access_tokens, only: %i[create destroy]
+
+  namespace :api do
+    namespace :v1 do
+      resources :notes, only: %i[create show update destroy]
+    end
+  end
+
   devise_for :users
   get "/users/:email" => "users#show", :constraints => { email: /.+@.+\..*/ }, as: "user"
 end

@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :confirmable
 
   has_many :notes, dependent: :destroy
+  has_one :access_token, dependent: :destroy
 end
