@@ -56,4 +56,34 @@ class Api::V1::NotesControllerTest < ActionDispatch::IntegrationTest
 
      assert_response 404
   end
+
+  test "should_return_401_when_request_without_access_token" do
+    post "/api/v1/notes", params: { title: "test", body: "test" }, as: :json
+    assert_response 401
+
+    put "/api/v1/notes/#{@note.uuid}", params: { title: "test", body: "updated" }, as: :json
+    assert_response 401
+
+    delete "/api/v1/notes/#{@note.uuid}"
+    assert_response 401
+  end
+
+  test "should_return_401_when_access_token_invalid" do
+    post "/api/v1/notes", params: { title: "test", body: "test" },
+                          as: :json,
+                          headers: { "Authorization" => "Bearer invalid-token" }
+    assert_response 401
+  end
+
+  test "should_return_404_when_trying_to_change_other_users_resource" do
+    other_user_note = Note.create(title: "test", body: "", uuid: "123", user_id: 2)
+
+    put "/api/v1/notes/#{other_user_note.uuid}", params: { title: "test", body: "updated" },
+                                                 as: :json,
+                                                 headers: { "Authorization" => "Bearer #{@access_token}" }
+    assert_response 404
+
+    delete "/api/v1/configs/#{other_user_note.uuid}", headers: { "Authorization" => "Bearer #{@access_token}" }
+    assert_response 404
+  end
 end
