@@ -23,6 +23,13 @@ class Api::V1::NotesControllerTest < ActionDispatch::IntegrationTest
     assert_equal @note.body, json_response["body"]
   end
 
+  test "PUT_should_update_note" do
+    put "/api/v1/notes/#{@note.uuid}", params: { title: "test", body: "updated" }, as: :json
+
+    @note.reload
+    assert_equal "updated", @note.body
+  end
+
   # Exceptions Test
 
   test "should_return_422_when_record_invalid" do

@@ -19,6 +19,14 @@ class Api::V1::NotesController < ApplicationController
     render json: { message: "Note '#{note.uuid}' was successfully created." }, status: :created
   end
 
+  # PUT api/v1/notes/:uuid
+  def update
+    note = current_user.notes.find_by!(uuid: params[:id])
+    note.update!(note_params)
+
+    render json: { message: "Note '#{params[:id]}' was successfully updated." }, status: :ok
+  end
+
   private
 
   def note_params
