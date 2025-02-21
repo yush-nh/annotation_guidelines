@@ -17,7 +17,8 @@ Rails.application.routes.draw do
 
   resources :notes
   devise_for :users, controllers: {
-    registrations: "users/registrations"
+    registrations: "users/registrations",
+    passwords: "users/passwords"
   }
   get "/users/:email" => "users#show", :constraints => { email: /.+@.+\..*/ }, as: "user"
 end
