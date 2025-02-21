@@ -33,6 +33,8 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "devise"
+gem "recaptcha"
+gem "dotenv-rails"
 gem "kaminari"
 gem "commonmarker"
 

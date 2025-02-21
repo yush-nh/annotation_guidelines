@@ -1,12 +1,20 @@
 <h2>Forgot your password?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), data: { turbo: false }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+
+  <% if recaptcha_usable? %>
+    <div class="field">
+      <!-- Using noscript option to fix problem that request parameter g-recaptcha-response is not set correctly -->
+      <!-- about: https://github.com/ambethia/recaptcha/issues/407 -->
+      <%= recaptcha_tags noscript: false %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Send me reset password instructions" %>
