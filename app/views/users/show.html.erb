@@ -32,3 +32,32 @@
   <%= paginate @notes %>
 </section>
 
+<% if current_user == @user %>
+  <section>
+    <h2>Access Token</h2>
+    <% if @user.access_token.present? %>
+      <button disabled>create</button>
+
+      <table>
+        <tr>
+          <td>Token</td>
+          <td id="access-token"><%= @user.access_token.token %></td>
+          <td><i id="clipboard-btn" style="cursor: pointer" data-clipboard-target="#access-token" class="fa fa-copy"></i></td>
+          <td>
+            <%= link_to access_token_path(@user.access_token),
+                        data: {
+                          turbo_method: :delete,
+                          turbo_confirm: 'Are you sure?'
+                        } do %>
+              <i class="fa fa-trash"></i>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    <% else %>
+      <%= form_with url: access_tokens_path, method: :post do |f| %>
+        <%= f.submit 'create' %>
+      <% end %>
+    <% end %>
+  </section>
+<% end%>
