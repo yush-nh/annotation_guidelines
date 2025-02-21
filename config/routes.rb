@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :notes, only: %i[create show]
+      resources :notes, only: %i[create show update]
     end
   end
 
