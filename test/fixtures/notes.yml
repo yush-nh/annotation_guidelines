@@ -1,0 +1,6 @@
+one:
+  id: 1
+  title: "test"
+  body: "test"
+  uuid: <%= SecureRandom.uuid %>
+  user_id: 1
