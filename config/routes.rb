@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   root "notes#index"
 
   resources :notes
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    passwords: "users/passwords"
+  }
   get "/users/:email" => "users#show", :constraints => { email: /.+@.+\..*/ }, as: "user"
 end
