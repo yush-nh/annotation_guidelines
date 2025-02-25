@@ -1,6 +1,4 @@
-class Api::V1::NotesController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
+class Api::V1::NotesController < ActionController::API
   rescue_from StandardError, with: :render_standard_error
   rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid_error
   rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found_error
