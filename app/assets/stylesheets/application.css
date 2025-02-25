@@ -94,23 +94,6 @@ footer {
   }
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: white;
-}
-
-th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
-}
-
-th {
-  background-color: #f4f4f4;
-  font-weight: bold;
-}
-
 .flash {
   padding: 10px;
   margin: 10px 0;

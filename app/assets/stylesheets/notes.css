@@ -1,9 +1,46 @@
-.note-body {
-  max-width: 300px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.note-create-link {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
 }
+
+.note-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: white;
+
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    padding: 14px;
+  }
+
+  td {
+    padding: 6px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+
+  .note-title {
+    width: 60%;
+  }
+
+  .note-author {
+    width: 20%;
+  }
+
+  .note-updated-at {
+    width: 20%;
+  }
+}
+
 
 .pagination {
   margin-top: 20px;
@@ -14,7 +51,7 @@
   padding: 8px 12px;
   margin: 0 5px;
   border: 1px solid #ddd;
-  color: #333;
+  color: #0000EE;
   text-decoration: none;
 }
 
