@@ -1,4 +1,6 @@
 class Api::V1::NotesController < ActionController::API
+  before_action :authenticate_access_token, only: %i[create update destroy]
+
   rescue_from StandardError, with: :render_standard_error
   rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid_error
   rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found_error
@@ -32,6 +34,33 @@ class Api::V1::NotesController < ActionController::API
   end
 
   private
+
+  def authenticate_access_token
+    if token
+      sign_in(token.user)
+    else
+      render_token_invalid_error
+    end
+  end
+
+  def token
+    bearer_token = bearer_token_in(request.headers)
+    AccessToken.find_by(token: bearer_token) if bearer_token
+  end
+
+  def bearer_token_in(headers)
+    case headers["Authorization"]
+    in /^Bearer (.+)$/
+      Regexp.last_match(1)
+    else
+      nil
+    end
+  end
+
+  def render_token_invalid_error
+    render json: { error: "The access token is missing or invalid." }, status: :unauthorized
+    response.headers["WWW-Authenticate"] = "Bearer"
+  end
 
   def note_params
     params.require(:note).permit(:title, :body)
