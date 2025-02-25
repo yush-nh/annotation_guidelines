@@ -1,6 +1,10 @@
-<h1>Notes</h1>
+<% content_for :page_title do %>
+  <span class="page-title">Notes</span>
+<% end%>
 
-<%= link_to "Create", new_note_path %>
+<div class="note-create-link">
+  <%= link_to "+ Add new note", new_note_path, class: "button" %>
+</div>
 
 <table>
   <thead>

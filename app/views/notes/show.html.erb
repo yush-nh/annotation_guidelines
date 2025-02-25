@@ -1,4 +1,6 @@
-<h1><%= @note.title %></h1>
+<% content_for :page_title do %>
+  <span class="page-title"><%= @note.title %></span>
+<% end%>
 
 <div>
   <%= @note.html_body %>
