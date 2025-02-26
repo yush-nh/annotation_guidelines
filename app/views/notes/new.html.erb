@@ -1,3 +1,5 @@
-<h1>New Note</h1>
+<% content_for :page_title do %>
+  <span class="page-title">New Note</span>
+<% end%>
 
 <%= render partial: "form", locals: { note: @note } %>

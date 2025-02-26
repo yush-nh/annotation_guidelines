@@ -9,15 +9,21 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
+ * {
+  box-sizing: border-box;
+}
+
 html {
   min-height: 100%;
   position: relative;
 }
 
 body {
-  margin: 0px;
-  padding: 0px;
-  margin-bottom: 60px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 90px;
+  color: #555555;
+  font-size: 16px;
 }
 
 header {
@@ -25,7 +31,7 @@ header {
   align-items: center;
   justify-content: space-between;
   background-color: #4CAF50;
-  padding: 20px;
+  padding: 16px 120px;
 
   a {
     color: white;
@@ -34,12 +40,10 @@ header {
 
   .logo a {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .account-menu {
-    margin-right: 40px;
-
     ul {
       margin: 0;
       display: flex;
@@ -48,6 +52,60 @@ header {
       li {
         margin: 0px 10px;
       }
+    }
+  }
+}
+
+.title-area {
+  margin: 20px 120px;
+  border-left: 6px solid #4CAF50;
+  border-bottom: 2px solid #4CAF50;
+
+  .page-title {
+    font-size: 26px;
+    font-weight: bold;
+    padding: 0 5px;
+  }
+}
+
+
+.content {
+  margin: auto;
+  padding: 0 120px;
+
+  a {
+    color: #1a73e8;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #1255b2;
+  }
+
+  .button,
+  .button-red {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .button {
+    color: #007bff;
+  }
+
+  .button-red {
+    color: red;
+
+    &:visited {
+      color: red;
+    }
+
+    &:hover {
+      color: rgb(192, 0, 0);
     }
   }
 }
@@ -67,23 +125,6 @@ footer {
   }
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
-}
-
-th {
-  background-color: #f4f4f4;
-  font-weight: bold;
-}
-
 .flash {
   padding: 10px;
   margin: 10px 0;
@@ -100,4 +141,8 @@ th {
   background-color: #f8d7da;
   color: #721c24;
   border: 1px solid #f5c6cb;
+}
+
+.error-messages {
+  color: #d9534f;
 }

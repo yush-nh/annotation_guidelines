@@ -28,15 +28,23 @@
   <body>
     <%= render "layouts/header" %>
 
-    <% if notice %>
-      <div class="flash notice"><%= notice %></div>
-    <% end %>
+    <main>
+      <div class="title-area">
+        <%= yield :page_title %>
+      </div>
 
-    <% if alert %>
-      <div class="flash alert"><%= alert %></div>
-    <% end %>
+      <div class="content">
+        <% if notice %>
+          <div class="flash notice"><%= notice %></div>
+        <% end %>
 
-    <%= yield %>
+        <% if alert %>
+          <div class="flash alert"><%= alert %></div>
+        <% end %>
+
+        <%= yield %>
+      </div>
+    </main>
 
     <%= render "layouts/footer" %>
   </body>

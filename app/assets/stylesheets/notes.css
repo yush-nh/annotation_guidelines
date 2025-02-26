@@ -1,12 +1,53 @@
-.note-body {
-  max-width: 300px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.note-create-link {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
 }
 
+.note-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: white;
+
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    padding: 14px;
+  }
+
+  td {
+    padding: 6px;
+  }
+
+  .td-link {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+
+  .note-title {
+    width: 60%;
+  }
+
+  .note-author {
+    width: 20%;
+  }
+
+  .note-updated-at {
+    width: 20%;
+  }
+}
+
+
 .pagination {
-  margin-top: 20px;
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -14,7 +55,7 @@
   padding: 8px 12px;
   margin: 0 5px;
   border: 1px solid #ddd;
-  color: #333;
+  color: #007bff;
   text-decoration: none;
 }
 
@@ -30,6 +71,63 @@
   border-radius: 4px;
 }
 
-.error-messages {
-  color: #d9534f;
+.note-form {
+  label {
+    display: block;
+    color: #666666;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .note-form-block {
+    margin: 10px 0;
+  }
+
+  .note-form-input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 30px;
+    font-size: 20px;
+    border: 1px solid #CED4D9;
+    border-radius: 4px;
+    padding-left: 6px;
+  }
+
+  .note-form-submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .EasyMDEContainer .CodeMirror {
+    font-size: 18px;
+  }
+
+  .EasyMDEContainer .editor-preview {
+    font-size: 18px;
+  }
+}
+
+.note-body {
+  min-height: 400px;
+  margin: 30px 0;
+  padding: 0 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.note-show-links {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+
+  .left {
+    margin-right: auto;
+  }
+
+  .right {
+    margin-left: 10px;
+  }
 }

@@ -2,7 +2,7 @@ const events = ['turbo:load', 'turbo:render']
 
 for (const event of events) {
   document.addEventListener(event, () => {
-    const textArea = document.querySelector(".note_textarea")
+    const textArea = document.querySelector(".note-textarea")
 
     if (textArea && !textArea.dataset.easyMDEInitialized) {
       // Set flag to avoid double initialization.
@@ -11,6 +11,10 @@ for (const event of events) {
       new EasyMDE({
         element: textArea,
         spellChecker: false,
+        status: false,
+        sideBySideFullscreen: false,
+        theme: "", // Disable theme.
+        minHeight: "500px",
         toolbar: [
           "bold",
           "italic",
