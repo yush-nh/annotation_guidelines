@@ -19,8 +19,8 @@ html {
 }
 
 body {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   margin-bottom: 90px;
   color: #555555;
   font-size: 16px;
@@ -71,7 +71,7 @@ header {
 
 .content {
   margin: auto;
-  padding: 0px 120px;
+  padding: 0 120px;
 
   a {
     color: #1a73e8;
@@ -120,26 +120,23 @@ footer {
   color: #d9534f;
 }
 
-.button {
+.button,
+.button-red {
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 8px;
-  color: #007bff;
   padding: 6px 10px;
   font-size: 16px;
   text-align: center;
   cursor: pointer;
 }
 
+.button {
+  color: #007bff;
+}
+
 .button-red {
-  background-color: white;
-  border: 1px solid lightgray;
-  border-radius: 8px;
   color: red;
-  padding: 6px 10px;
-  font-size: 16px;
-  text-align: center;
-  cursor: pointer;
 }
 
 .content .button-red:visited {
