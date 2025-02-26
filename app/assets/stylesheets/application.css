@@ -9,6 +9,10 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
+ * {
+  box-sizing: border-box;
+}
+
 html {
   min-height: 100%;
   position: relative;
@@ -17,8 +21,8 @@ html {
 body {
   margin: 0px;
   padding: 0px;
-  margin-bottom: 60px;
-  color: #363636;
+  margin-bottom: 90px;
+  color: #555555;
   font-size: 16px;
 }
 
@@ -58,7 +62,6 @@ header {
   border-bottom: 2px solid #4CAF50;
 
   .page-title {
-    color: #666666;
     font-size: 26px;
     font-weight: bold;
     padding: 0 5px;
@@ -71,8 +74,12 @@ header {
   padding: 0px 120px;
 
   a {
-    color: #0000EE;
+    color: #1a73e8;
     text-decoration: none;
+  }
+
+  a:hover {
+    color: #1255b2;
   }
 }
 
@@ -117,8 +124,9 @@ footer {
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 8px;
-  color: #0000EE;
+  color: #007bff;
   padding: 6px 10px;
+  font-size: 16px;
   text-align: center;
   cursor: pointer;
 }
@@ -129,10 +137,15 @@ footer {
   border-radius: 8px;
   color: red;
   padding: 6px 10px;
+  font-size: 16px;
   text-align: center;
   cursor: pointer;
 }
 
-.button-red:visited {
+.content .button-red:visited {
   color: red;
+}
+
+.content .button-red:hover {
+  color: rgb(192, 0, 0);
 }

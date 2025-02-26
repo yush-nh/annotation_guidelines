@@ -23,6 +23,13 @@
     text-overflow: ellipsis;
   }
 
+  .td-link {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
   th, td {
     border: 1px solid #ddd;
     text-align: center;
@@ -43,7 +50,7 @@
 
 
 .pagination {
-  margin-top: 20px;
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -51,7 +58,7 @@
   padding: 8px 12px;
   margin: 0 5px;
   border: 1px solid #ddd;
-  color: #0000EE;
+  color: #007bff;
   text-decoration: none;
 }
 
@@ -89,6 +96,12 @@
     padding-left: 6px;
   }
 
+  .note-form-submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
   .EasyMDEContainer .CodeMirror {
     font-size: 18px;
   }
@@ -108,7 +121,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.note-links {
+.note-show-links {
   display: flex;
   justify-content: flex-end;
   width: 100%;

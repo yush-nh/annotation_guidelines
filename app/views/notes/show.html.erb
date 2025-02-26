@@ -7,7 +7,7 @@
 </div>
 
 
-<div class="note-links">
+<div class="note-show-links">
   <%= link_to 'Back', notes_path, class: "button left" %>
   <% if current_user == @note.user %>
     <%= link_to 'Edit', edit_note_path(@note), class: "button right" %>

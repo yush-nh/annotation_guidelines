@@ -20,7 +20,7 @@
     <%= f.text_area :body, class: "note-textarea" %>
   </div>
 
-  <div>
+  <div class="note-form-submit">
     <%= f.submit note.new_record? ? "Create" : "Update", class: "button" %>
   </div>
 <% end %>
