@@ -19,7 +19,7 @@ body {
   padding: 0px;
   margin-bottom: 60px;
   color: #363636;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 header {
@@ -71,11 +71,8 @@ header {
   padding: 0px 120px;
 
   a {
-    text-decoration: none;
-  }
-
-  a:visited {
     color: #0000EE;
+    text-decoration: none;
   }
 }
 
@@ -124,4 +121,18 @@ footer {
   padding: 6px 10px;
   text-align: center;
   cursor: pointer;
+}
+
+.button-red {
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  color: red;
+  padding: 6px 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button-red:visited {
+  color: red;
 }
