@@ -99,14 +99,14 @@ header {
 
   .button-red {
     color: red;
-  }
 
-  .button-red:visited {
-    color: red;
-  }
+    &:visited {
+      color: red;
+    }
 
-  .button-red:hover {
-    color: rgb(192, 0, 0);
+    &:hover {
+      color: rgb(192, 0, 0);
+    }
   }
 }
 
