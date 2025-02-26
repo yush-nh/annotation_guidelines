@@ -81,6 +81,33 @@ header {
   a:hover {
     color: #1255b2;
   }
+
+  .button,
+  .button-red {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .button {
+    color: #007bff;
+  }
+
+  .button-red {
+    color: red;
+  }
+
+  .button-red:visited {
+    color: red;
+  }
+
+  .button-red:hover {
+    color: rgb(192, 0, 0);
+  }
 }
 
 footer {
@@ -118,31 +145,4 @@ footer {
 
 .error-messages {
   color: #d9534f;
-}
-
-.button,
-.button-red {
-  background-color: white;
-  border: 1px solid lightgray;
-  border-radius: 8px;
-  padding: 6px 10px;
-  font-size: 16px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.button {
-  color: #007bff;
-}
-
-.button-red {
-  color: red;
-}
-
-.content .button-red:visited {
-  color: red;
-}
-
-.content .button-red:hover {
-  color: rgb(192, 0, 0);
 }
