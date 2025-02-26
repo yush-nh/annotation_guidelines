@@ -112,10 +112,16 @@ footer {
   border: 1px solid #f5c6cb;
 }
 
+.error-messages {
+  color: #d9534f;
+}
+
 .button {
+  background-color: white;
   border: 1px solid lightgray;
   border-radius: 8px;
   color: #0000EE;
   padding: 6px 10px;
   text-align: center;
+  cursor: pointer;
 }
