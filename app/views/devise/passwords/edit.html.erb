@@ -1,6 +1,4 @@
-<% content_for :page_title do %>
-  <span class="page-title">Change your password</span>
-<% end%>
+<h2>Change your password</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>

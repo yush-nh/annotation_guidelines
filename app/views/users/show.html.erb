@@ -1,7 +1,5 @@
 <section>
-  <% content_for :page_title do %>
-    <span class="page-title"><%= @user.email %></span>
-  <% end%>
+  <h1><%= @user.email %></h1>
   <% if current_user == @user %>
     <%= link_to "Edit", edit_user_registration_path %>
   <% end %>
