@@ -77,3 +77,16 @@
 .delete-token {
   color: #555555;
 }
+
+.delete-account {
+  color: red;
+  margin-left: 135px;
+
+  &:visited {
+    color: red;
+  }
+
+  &:hover {
+    color: rgb(192, 0, 0) !important;
+  }
+}
