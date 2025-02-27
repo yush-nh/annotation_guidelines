@@ -22,6 +22,11 @@
     }
   }
 
+  .remember-me {
+    display: block;
+    margin-bottom: 10px;
+  }
+
   .user-form-submit {
     margin-top: 10px;
   }
