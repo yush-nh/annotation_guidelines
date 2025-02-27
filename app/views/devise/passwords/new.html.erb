@@ -1,24 +1,29 @@
-<h2>Forgot your password?</h2>
+<% content_for :page_title do %>
+  <span class="page-title">Reset password</span>
+<% end%>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), data: { turbo: false }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="user-form">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), data: { turbo: false }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="user-form-field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter your email address" %>
+    </div>
 
-  <% if recaptcha_usable? %>
-    <div class="field">
-      <!-- Using noscript option to fix problem that request parameter g-recaptcha-response is not set correctly -->
-      <!-- about: https://github.com/ambethia/recaptcha/issues/407 -->
-      <%= recaptcha_tags noscript: false %>
+    <% if recaptcha_usable? %>
+      <div class="user-form-field">
+        <label>Recaptcha verification</label>
+        <!-- Using noscript option to fix problem that request parameter g-recaptcha-response is not set correctly -->
+        <!-- about: https://github.com/ambethia/recaptcha/issues/407 -->
+        <%= recaptcha_tags noscript: false %>
+      </div>
+    <% end %>
+
+    <div class="user-form-submit">
+      <%= f.submit "Send me reset password instructions", class: "button" %>
     </div>
   <% end %>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<%= link_to "Back", :back %>

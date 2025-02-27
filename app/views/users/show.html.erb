@@ -1,29 +1,37 @@
 <section>
-  <h1><%= @user.email %></h1>
+  <% content_for :page_title do %>
+    <span class="page-title"><%= @user.email %></span>
+  <% end%>
   <% if current_user == @user %>
-    <%= link_to "Edit", edit_user_registration_path %>
+    <div class="user-edit-link">
+      <%= link_to "Edit user info", edit_user_registration_path, class: "button" %>
+    </div>
   <% end %>
 </section>
 
 <section>
-  <h2>Notes</h2>
+  <div class="semi-title-area">
+    <span class="semi-title">Notes</span>
+  </div>
 
-  <table>
+  <div class="note-create-link">
+    <%= link_to "+ Add new note", new_note_path, class: "button" %>
+  </div>
+
+  <table class="note-table">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th>Updated at</th>
-        <th>Author</th>
+        <th class="note-title">Title</th>
+        <th class="note-author">Author</th>
+        <th class="note-updated-at">Updated at</th>
       </tr>
     </thead>
     <tbody>
-      <% @user.notes.each do |note| %>
+      <% @notes.each do |note| %>
         <tr>
-          <td><%= link_to note.title, note_path(note) %></td>
-          <td class="note-body"><%= note.body %></td>
-          <td><%= note.updated_at %></td>
-          <td><%= note.user.email %></td>
+          <td class="note-title"><%= link_to note.title, note_path(note), class: "td-link" %></td>
+          <td class="note-author"><%= link_to note.user.email, user_path(note.user.email), class: "td-link" %></td>
+          <td class="note-updated-at"><%= note.updated_at %></td>
         </tr>
       <% end %>
     </tbody>
@@ -34,29 +42,26 @@
 
 <% if current_user == @user %>
   <section>
-    <h2>Access Token</h2>
-    <% if @user.access_token.present? %>
-      <button disabled>create</button>
+    <div class="semi-title-area">
+      <span class="semi-title">Access Token</span>
+    </div>
 
-      <table>
-        <tr>
-          <td>Token</td>
-          <td id="access-token"><%= @user.access_token.token %></td>
-          <td><i id="clipboard-btn" style="cursor: pointer" data-clipboard-target="#access-token" class="fa fa-copy"></i></td>
-          <td>
-            <%= link_to access_token_path(@user.access_token),
-                        data: {
-                          turbo_method: :delete,
-                          turbo_confirm: 'Are you sure?'
-                        } do %>
-              <i class="fa fa-trash"></i>
-            <% end %>
-          </td>
-        </tr>
+    <% if @user.access_token.present? %>
+      <button class="button-disabled" disabled>create</button>
+
+      <table class="token-table">
+        <th>Token</th>
+        <td id="access-token"><%= @user.access_token.token %></td>
+        <td><i id="clipboard-btn" style="cursor: pointer" data-clipboard-target="#access-token" class="fa fa-copy"></i></td>
+        <td>
+          <%= link_to access_token_path(@user.access_token), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+            <i class="delete-token fa fa-trash"></i>
+          <% end %>
+        </td>
       </table>
     <% else %>
       <%= form_with url: access_tokens_path, method: :post do |f| %>
-        <%= f.submit 'create' %>
+        <%= f.submit 'create', class: "button" %>
       <% end %>
     <% end %>
   </section>

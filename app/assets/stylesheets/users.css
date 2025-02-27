@@ -1,0 +1,92 @@
+.user-form {
+  margin-bottom: 10px;
+
+  .user-form-field {
+    margin-top: 10px;
+
+    label {
+      display: block;
+      color: #666666;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 300px;
+      box-sizing: border-box;
+      height: 30px;
+      font-size: 16px;
+      border: 1px solid #CED4D9;
+      border-radius: 4px;
+      padding-left: 6px;
+    }
+  }
+
+  .remember-me {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .user-form-submit {
+    margin-top: 10px;
+  }
+}
+
+.semi-title-area {
+  width: 20%;
+  margin: 10px 0;
+  border-left: 4px solid #4CAF50;
+
+  .semi-title {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0 5px;
+  }
+}
+
+.user-edit-link {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.token-table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 10px 0px;
+
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    padding: 0 14px;
+  }
+
+  td {
+    padding: 6px;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+
+  svg {
+    padding: 0 10px;
+  }
+}
+
+.delete-token {
+  color: #555555;
+}
+
+.delete-account {
+  color: red;
+  margin-left: 135px;
+
+  &:visited {
+    color: red;
+  }
+
+  &:hover {
+    color: rgb(192, 0, 0) !important;
+  }
+}
