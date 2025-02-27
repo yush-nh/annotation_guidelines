@@ -1,0 +1,29 @@
+.user-form {
+  margin-bottom: 10px;
+
+  .user-form-field {
+    margin-top: 10px;
+
+    label {
+      display: block;
+      color: #666666;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 300px;
+      box-sizing: border-box;
+      height: 30px;
+      font-size: 16px;
+      border: 1px solid #CED4D9;
+      border-radius: 4px;
+      padding-left: 6px;
+    }
+  }
+
+  .user-form-submit {
+    margin-top: 10px;
+  }
+}
+
