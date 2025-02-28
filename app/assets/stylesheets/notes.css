@@ -75,7 +75,7 @@
   label {
     display: block;
     color: #666666;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
   }
 
@@ -87,7 +87,7 @@
     width: 100%;
     box-sizing: border-box;
     height: 30px;
-    font-size: 20px;
+    font-size: 1.25rem;
     border: 1px solid #CED4D9;
     border-radius: 4px;
     padding-left: 6px;
@@ -100,11 +100,11 @@
   }
 
   .EasyMDEContainer .CodeMirror {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   .EasyMDEContainer .editor-preview {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 }
 
