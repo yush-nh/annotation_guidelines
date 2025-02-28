@@ -2,9 +2,10 @@ require "application_system_test_case"
 
 class NotesTest < ApplicationSystemTestCase
   setup do
-    @user = users(:one)
-    Note.create!(title: "new note", updated_at: 1.day.ago, user: @user)
-    Note.create!(title: "old note", updated_at: 2.day.ago, user: @user)
+    @user1 = users(:one)
+    @user2 = users(:two)
+    Note.create!(title: "new note", updated_at: 1.day.ago, user_id: @user1.id)
+    Note.create!(title: "old note", updated_at: 2.day.ago, user_id: @user2.id)
   end
 
   test "title should sortable by ascending" do

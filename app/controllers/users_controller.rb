@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by!(email: params[:email])
-    @notes = @user.notes.order("#{sort_column}").page(params[:page])
+    @notes = @user.notes.includes(:user).order("#{sort_column}").page(params[:page])
 
     @sort_column = params[:sort_column]
     @sort_direction = params[:sort_direction]
