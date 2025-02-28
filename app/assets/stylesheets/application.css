@@ -23,7 +23,7 @@ body {
   padding: 0;
   margin-bottom: 90px;
   color: #555555;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 header {
@@ -40,7 +40,7 @@ header {
 
   .logo a {
     font-weight: bold;
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .account-menu {
@@ -62,7 +62,7 @@ header {
   border-bottom: 2px solid #4CAF50;
 
   .page-title {
-    font-size: 26px;
+    font-size: 1.625rem;
     font-weight: bold;
     padding: 0 5px;
   }
@@ -88,7 +88,7 @@ header {
     border: 1px solid lightgray;
     border-radius: 8px;
     padding: 6px 10px;
-    font-size: 16px;
+    font-size: 1rem;
     text-align: center;
     cursor: pointer;
   }
@@ -114,7 +114,7 @@ header {
     border: 1px solid lightgray;
     border-radius: 8px;
     padding: 6px 10px;
-    font-size: 16px;
+    font-size: 1rem;
     text-align: center;
   }
 }
