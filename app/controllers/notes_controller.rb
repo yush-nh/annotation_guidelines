@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_note, only: %i[edit update destroy]
 
-  SORT_COLUMNS = %w[title email updated_at]
+  SORT_COLUMNS = %w[title author updated_at]
   DEFAULT_SORT_COLUMN = "updated_at"
   SORT_DIRECTIONS = %w[asc desc]
   DEFAULT_SORT_DIRECTION = "desc"

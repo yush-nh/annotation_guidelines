@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include Sortable
 
-  SORT_COLUMNS = %w[title email updated_at]
+  SORT_COLUMNS = %w[title author updated_at]
   DEFAULT_SORT_COLUMN = "updated_at"
   SORT_DIRECTIONS = %w[asc desc]
   DEFAULT_SORT_DIRECTION = "desc"
