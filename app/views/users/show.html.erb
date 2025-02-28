@@ -21,9 +21,18 @@
   <table class="note-table">
     <thead>
       <tr>
-        <th class="note-title">Title</th>
-        <th class="note-author">Author</th>
-        <th class="note-updated-at">Updated at</th>
+        <th class="note-title">
+          <%= link_to "Title", user_path(@user.email, sort_column: 'title', sort_direction: @sort_column == 'title' && @sort_direction == 'asc' ? 'desc' : 'asc') %>
+          <%= sort_icon('title') %>
+        </th>
+        <th class="note-author">
+          <%= link_to "Author", user_path(@user.email, sort_column: 'author', sort_direction: @sort_column == 'author' && @sort_direction == 'asc' ? 'desc' : 'asc') %>
+          <%= sort_icon('author') %>
+        </th>
+        <th class="note-updated-at">
+          <%= link_to "Updated at", user_path(@user.email, sort_column: 'updated_at', sort_direction: @sort_column == 'updated_at' && @sort_direction == 'asc' ? 'desc' : 'asc') %>
+          <%= sort_icon('updated_at') %>
+        </th>
       </tr>
     </thead>
     <tbody>
