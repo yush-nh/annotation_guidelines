@@ -7,6 +7,21 @@ class Note < ApplicationRecord
   validates :title, length: { maximum: 255 }
   validate :must_have_title_or_body
 
+  SORT_COLUMNS = %w[title author updated_at]
+  SORT_DIRECTIONS = %w[asc desc]
+
+  scope :order_by, ->(column, direction) do
+    if SORT_COLUMNS.include?(column) && SORT_DIRECTIONS.include?(direction)
+      if column == "author"
+        order("users.email #{direction}")
+      else
+        order("#{column} #{direction}")
+      end
+    else
+      order("updated_at desc")
+    end
+  end
+
   # Commonmarker ensures that potentially dangerous tags like <script> are already sanitized.
   # However, Brakeman still raises a Cross-Site Scripting warning when the raw output of Commonmarker.to_html is used in views.
   # To suppress the warning, explicitly mark the returned HTML as safe using .html_safe.

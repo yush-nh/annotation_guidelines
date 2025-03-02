@@ -1,16 +1,11 @@
 class NotesController < ApplicationController
-  include Sortable
-
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_note, only: %i[edit update destroy]
 
-  SORT_COLUMNS = %w[title author updated_at]
-  DEFAULT_SORT_COLUMN = "updated_at"
-  SORT_DIRECTIONS = %w[asc desc]
-  DEFAULT_SORT_DIRECTION = "desc"
-
   def index
-    @notes = Note.includes(:user).order("#{sort_column}").page(params[:page])
+    @notes = Note.includes(:user)
+                 .order_by(params[:sort_column], params[:sort_direction])
+                 .page(params[:page])
 
     @sort_column = params[:sort_column]
     @sort_direction = params[:sort_direction]
