@@ -18,30 +18,55 @@
     <%= link_to "+ Add new note", new_note_path, class: "button" %>
   </div>
 
-  <table class="note-table">
-    <thead>
-      <tr>
-        <th class="note-title">
-          <%= sort_by "title" %>
-        </th>
-        <th class="note-author">
-          <%= sort_by "author" %>
-        </th>
-        <th class="note-updated-at">
-        <%= sort_by "updated_at", label: "Updated at" %>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @notes.each do |note| %>
+  <%= form_with model: @note_search_form, scope: :q, url: user_path(@user.email), method: :get do |f| %>
+    <table class="note-table">
+      <thead>
         <tr>
-          <td class="note-title"><%= link_to note.title, note_path(note), class: "td-link" %></td>
-          <td class="note-author"><%= link_to note.user.email, user_path(note.user.email), class: "td-link" %></td>
-          <td class="note-updated-at"><%= note.updated_at %></td>
+          <th class="note-title">
+            <%= sort_by "title" %>
+          </th>
+          <th class="note-author">
+            <%= sort_by "author" %>
+          </th>
+          <th class="note-updated-at">
+          <%= sort_by "updated_at", label: "Updated at" %>
+          </th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <tr>
+          <th><%= f.text_field :title %></th>
+          <th><%= f.text_field :author %></th>
+          <th>
+            <div class="filter-updated-at-form">
+              <%= f.date_field :start_date %>
+              <span>~</span>
+              <%= f.date_field :end_date %>
+            </div>
+          </th>
+          <th>
+            <div style="display: flex; flex-flow: column">
+              <%= button_tag type: 'submit', class: "filter-icon" do %>
+                <i class="fa-solid fa-filter" title="filter"></i>
+              <% end %>
+              <%= link_to notes_path do %>
+                <i class="fa-solid fa-rotate-left" title="reset"></i>
+              <% end %>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @notes.each do |note| %>
+          <tr>
+            <td class="note-title"><%= link_to note.title, note_path(note), class: "td-link" %></td>
+            <td class="note-author"><%= link_to note.user.email, user_path(note.user.email), class: "td-link" %></td>
+            <td class="note-updated-at"><%= note.updated_at %></td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 
   <%= paginate @notes %>
 </section>

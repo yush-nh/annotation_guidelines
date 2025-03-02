@@ -18,7 +18,7 @@ class Note < ApplicationRecord
         includes(:user).order("#{column} #{direction}")
       end
     else
-      includes(:user).order("updated_at desc")
+      includes(:user).order("notes.updated_at desc")
     end
   end
 
