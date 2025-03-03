@@ -22,16 +22,13 @@
     <thead>
       <tr>
         <th class="note-title">
-          <%= link_to "Title", user_path(@user.email, sort_column: 'title', sort_direction: @sort_column == 'title' && @sort_direction == 'asc' ? 'desc' : 'asc') %>
-          <%= sort_icon('title') %>
+          <%= sort_by "title", label: "Title" %>
         </th>
         <th class="note-author">
-          <%= link_to "Author", user_path(@user.email, sort_column: 'author', sort_direction: @sort_column == 'author' && @sort_direction == 'asc' ? 'desc' : 'asc') %>
-          <%= sort_icon('author') %>
+          <%= sort_by "author", label: "Author" %>
         </th>
         <th class="note-updated-at">
-          <%= link_to "Updated at", user_path(@user.email, sort_column: 'updated_at', sort_direction: @sort_column == 'updated_at' && @sort_direction == 'asc' ? 'desc' : 'asc') %>
-          <%= sort_icon('updated_at') %>
+        <%= sort_by "updated_at", label: "Updated at" %>
         </th>
       </tr>
     </thead>
