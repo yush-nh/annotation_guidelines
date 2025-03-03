@@ -10,9 +10,9 @@ class NoteSearchForm
   validate :start_date_must_be_before_end_date
 
   def search(base_scope = Note)
-    notes = base_scope.includes(:user)
-    return notes if invalid? # Exec validation to receiver instance.
+    return base_scope.none if invalid? # Exec validation to receiver instance.
 
+    notes = base_scope.includes(:user)
     notes = filter_by_title(notes)
     notes = filter_by_author(notes)
     filter_by_updated_at(notes)
