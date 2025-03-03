@@ -1,6 +1,6 @@
 module ApplicationHelper
   def sort_by(column, label: nil)
-    label ||= column
+    label ||= column.capitalize
     direction = @sort_column == column && @sort_direction == "asc" ? "desc" : "asc"
 
     link_to "#{label} #{sort_icon(column)}".html_safe, notes_path(sort_column: column, sort_direction: direction)
