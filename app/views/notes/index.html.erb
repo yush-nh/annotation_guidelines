@@ -9,9 +9,15 @@
 <table class="note-table">
   <thead>
     <tr>
-      <th class="note-title">Title</th>
-      <th class="note-author">Author</th>
-      <th class="note-updated-at">Updated at</th>
+      <th class="note-title">
+        <%= sort_by "title" %>
+      </th>
+      <th class="note-author">
+        <%= sort_by "author" %>
+      </th>
+      <th class="note-updated-at">
+       <%= sort_by "updated_at", label: "Updated at" %>
+      </th>
     </tr>
   </thead>
   <tbody>
