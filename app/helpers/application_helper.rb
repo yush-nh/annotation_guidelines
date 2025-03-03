@@ -3,7 +3,9 @@ module ApplicationHelper
     label ||= column.capitalize
     direction = @sort_column == column && @sort_direction == "asc" ? "desc" : "asc"
 
-    link_to "#{label} #{sort_icon(column)}".html_safe, url_for(sort_column: column, sort_direction: direction)
+    link_to url_for(sort_column: column, sort_direction: direction) do
+      safe_join([ label, sort_icon(column) ], " ")
+    end
   end
 
   private
