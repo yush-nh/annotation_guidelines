@@ -3,8 +3,10 @@ class NotesController < ApplicationController
   before_action :set_note, only: %i[edit update destroy]
 
   def index
-    @notes = Note.order_by(params[:sort_column], params[:sort_direction])
-                 .page(params[:page])
+    @note_search_form = NoteSearchForm.new(search_params)
+    @notes = @note_search_form.search
+                              .order_by(params[:sort_column], params[:sort_direction])
+                              .page(params[:page])
 
     @sort_column = params[:sort_column]
     @sort_direction = params[:sort_direction]
@@ -51,5 +53,9 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(:title, :body)
+  end
+
+  def search_params
+    params.fetch(:q, {}).permit(:title, :author, :start_date, :end_date)
   end
 end
