@@ -11,7 +11,7 @@ class NoteSearchForm
 
   def search(base_scope = Note)
     notes = base_scope.includes(:user)
-    return notes if invalid? # Exec validation to receiver instance.
+    valid? # Exec validation to receiver instance.
 
     notes = filter_by_title(notes)
     notes = filter_by_author(notes)
@@ -33,6 +33,8 @@ class NoteSearchForm
   end
 
   def filter_by_updated_at(notes)
+    return notes if errors[:start_date].present? || errors[:end_date].present?
+
     notes = notes.where(updated_at: start_date..) if start_date.present?
     notes = notes.where(updated_at: ..end_date) if end_date.present?
     notes
