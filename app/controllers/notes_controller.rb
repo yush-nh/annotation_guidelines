@@ -3,8 +3,7 @@ class NotesController < ApplicationController
   before_action :set_note, only: %i[edit update destroy]
 
   def index
-    @notes = Note.includes(:user)
-                 .order_by(params[:sort_column], params[:sort_direction])
+    @notes = Note.order_by(params[:sort_column], params[:sort_direction])
                  .page(params[:page])
 
     @sort_column = params[:sort_column]

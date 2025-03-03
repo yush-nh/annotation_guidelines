@@ -13,12 +13,12 @@ class Note < ApplicationRecord
   scope :order_by, ->(column, direction) do
     if SORT_COLUMNS.include?(column) && SORT_DIRECTIONS.include?(direction)
       if column == "author"
-        order("users.email #{direction}")
+        includes(:user).order("users.email #{direction}")
       else
-        order("#{column} #{direction}")
+        includes(:user).order("#{column} #{direction}")
       end
     else
-      order("updated_at desc")
+      includes(:user).order("updated_at desc")
     end
   end
 
