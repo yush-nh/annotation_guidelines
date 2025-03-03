@@ -48,7 +48,7 @@
               <%= button_tag type: 'submit', class: "filter-icon" do %>
                 <i class="fa-solid fa-filter" title="filter"></i>
               <% end %>
-              <%= link_to notes_path do %>
+              <%= link_to user_path(@user.email) do %>
                 <i class="fa-solid fa-rotate-left" title="reset"></i>
               <% end %>
             </div>
