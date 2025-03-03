@@ -7,6 +7,7 @@
 </div>
 
 <%= form_with model: @note_search_form, scope: :q, url: notes_path, method: :get do |f| %>
+  <%= render "shared/note_filter_errors", object: @note_search_form %>
   <table class="note-table">
     <thead>
       <tr>

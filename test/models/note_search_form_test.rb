@@ -49,4 +49,9 @@ class NoteSearchFormTest < ActiveSupport::TestCase
     assert_not_includes result, @note1
     assert_not_includes result, note3
   end
+
+  test "should be invalid when end_date is before start_date" do
+    form = NoteSearchForm.new(start_date: 2.days.ago.to_date, end_date: 4.days.ago.to_date)
+    assert_not form.valid?
+  end
 end
