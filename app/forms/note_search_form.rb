@@ -7,7 +7,7 @@ class NoteSearchForm
   attribute :start_date, :date
   attribute :end_date, :date
 
-  validate :end_date_cannot_be_before_start_date
+  validate :start_date_must_be_before_end_date
 
   def search(base_scope = Note)
     notes = base_scope.includes(:user)
@@ -38,7 +38,7 @@ class NoteSearchForm
     notes
   end
 
-  def end_date_cannot_be_before_start_date
+  def start_date_must_be_before_end_date
     return unless start_date.present? && end_date.present?
 
     errors.add(:base, "The 'Updated at' end date must be on or after the start date.") if end_date < start_date
