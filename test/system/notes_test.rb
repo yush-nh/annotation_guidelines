@@ -1,11 +1,63 @@
 require "application_system_test_case"
 
 class NotesTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
     @user1 = users(:one)
     @user2 = users(:two)
-    Note.create!(title: "new note", updated_at: 1.day.ago, user_id: @user1.id)
-    Note.create!(title: "old note", updated_at: 2.day.ago, user_id: @user2.id)
+    @note1 = Note.create!(title: "new-note", body: "**Hello** _world_", updated_at: 1.day.ago, user_id: @user1.id)
+    Note.create!(title: "old-note", updated_at: 2.day.ago, user_id: @user2.id)
+
+    sign_in(@user1)
+  end
+
+  test "note should creatable" do
+    visit notes_path
+    click_on "Add new note"
+
+    fill_in "note_title", with: "New Note Title"
+    find(".CodeMirror textarea", visible: false).set("**Hello** _world_")
+
+    click_on "Create"
+
+    assert_text "Note was successfully created."
+    assert_text "New Note Title"
+    assert_selector "strong", text: "Hello"
+    assert_selector "em", text: "world"
+  end
+
+  test "note should displayable" do
+    visit notes_path
+    click_on @note1.title
+
+    assert_text @note1.title
+    assert_selector "strong", text: "Hello"
+    assert_selector "em", text: "world"
+  end
+
+  test "note should updatable" do
+    visit note_path(@note1)
+    click_on "Edit"
+
+    fill_in "Title", with: "Updated Note Title"
+    find(".CodeMirror textarea", visible: false).set("## Updated Content")
+
+    click_on "Update"
+
+    assert_text "Note was successfully updated."
+    assert_text "Updated Note Title"
+    assert_selector "h2", text: "Updated Content"
+  end
+
+  test "note should deletable" do
+    visit note_path(@note1)
+    accept_confirm do
+      click_on "Delete"
+    end
+
+    assert_text "Note was successfully deleted."
+    refute_text @note1.title
   end
 
   test "title should sortable by ascending" do
