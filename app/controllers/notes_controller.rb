@@ -24,7 +24,7 @@ class NotesController < ApplicationController
     @note = current_user.notes.new(note_params)
 
     if @note.save
-      redirect_to notes_path, notice: "Note was successfully created."
+      redirect_to note_path(@note), notice: "Note was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
