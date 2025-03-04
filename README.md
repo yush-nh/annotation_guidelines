@@ -35,7 +35,7 @@ Enter the required information.
 
 label example:
 ```
-annotation-guidelines
+near-note
 ```
 
 reCAPTCHA type:
