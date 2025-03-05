@@ -1,27 +1,43 @@
-# README
+# NearNote
+## Environment
+* ruby 3.4.1
+* Rails 8.0.1
+* SQLite3 2.5.0
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
+### Clone repository
+```
+git clone https://github.com/jdkim/nearnote.git
+cd nearnote
+```
 
-Things you may want to cover:
+### Install dependencies
+```
+bundle install
+```
 
-* Ruby version
+### Setup database
+```
+rails db:setup
+```
 
-* System dependencies
+### Start the server
+```
+rails server
+```
 
-* Configuration
+Now, you can access NearNote at http://localhost:3000.
 
-* Database creation
+## Tests
+This project uses Minitest for testing. To run the tests, execute:
+```
+rails test
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run system tests, execute:
+```
+rails test:system
+```
 
 ## ReCAPTCHA settings procedure
 Note: The reCAPTCHA feature will be off if site_key and secret_key are not set.
