@@ -20,7 +20,8 @@
     <%= f.text_area :body, class: "note-textarea" %>
   </div>
 
-  <div class="note-form-submit">
+  <div class="note-form-links">
+    <%= link_to "Back", back_path, class: "button" %>
     <%= f.submit note.new_record? ? "Create" : "Update", class: "button" %>
   </div>
 <% end %>

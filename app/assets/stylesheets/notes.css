@@ -102,9 +102,9 @@
     padding-left: 6px;
   }
 
-  .note-form-submit {
+  .note-form-links {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 30px;
   }
 
