@@ -164,5 +164,10 @@ footer {
 }
 
 .error-messages {
-  color: #d9534f;
+  background-color: #f8d7da;
+  color: #d23f4e;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding-left: 10px;
+  margin-bottom: 10px;
 }
