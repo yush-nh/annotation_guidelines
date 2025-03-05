@@ -2,4 +2,4 @@
   <span class="page-title">New Note</span>
 <% end%>
 
-<%= render partial: "form", locals: { note: @note } %>
+<%= render partial: "form", locals: { note: @note, back_path: notes_path } %>
