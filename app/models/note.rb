@@ -28,8 +28,13 @@ class Note < ApplicationRecord
   def html_body
     Commonmarker.to_html(
       body,
-      options: { render: { unsafe: true } },
-      plugins: { syntax_highlighter: { theme: "InspiredGitHub" } }
+      options: {
+        render: {
+          github_pre_lang: false,
+          unsafe: true
+        }
+      },
+      plugins: { syntax_highlighter: nil }
     ).html_safe
   end
 
