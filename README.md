@@ -28,6 +28,17 @@ rails server
 
 Now, you can access NearNote at http://localhost:3000.
 
+## Tests
+This project uses Minitest for testing. To run the tests, execute:
+```
+rails test
+```
+
+To run system tests, execute:
+```
+rails test:system
+```
+
 ## ReCAPTCHA settings procedure
 Note: The reCAPTCHA feature will be off if site_key and secret_key are not set.
 
