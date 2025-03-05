@@ -108,18 +108,10 @@
     margin-top: 30px;
   }
 
-  .EasyMDEContainer .CodeMirror {
-    font-size: 1.125rem;
-  }
-
-  .EasyMDEContainer .editor-preview {
-    font-size: 1.125rem;
-
-    pre code {
-      display: block;
-      background-color: #fdf6e3;
-      padding: 1rem;
-    }
+  .editor-preview pre code {
+    display: block;
+    background-color: #fdf6e3;
+    padding: 1rem;
   }
 }
 
