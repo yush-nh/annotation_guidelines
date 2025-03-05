@@ -9,3 +9,4 @@ pin "@fortawesome/fontawesome-free", to: "https://ga.jspm.io/npm:@fortawesome/fo
 pin "clipboard", to: "https://ga.jspm.io/npm:clipboard@2.0.11/dist/clipboard.js"
 pin "initializeEasyMDE"
 pin "initializeClipboard"
+pin "applySyntaxHighlight"
