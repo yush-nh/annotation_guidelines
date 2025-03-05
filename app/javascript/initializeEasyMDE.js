@@ -35,7 +35,7 @@ for (const event of events) {
 
           // Enable syntax highlighting only when language is specified in the code block.
           for (const block of codeBlocks) {
-            if (block.classList.length === 0) return
+            if (block.classList.length === 0) continue
 
             hljs.highlightBlock(block)
           }
