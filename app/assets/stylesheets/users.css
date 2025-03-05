@@ -1,3 +1,14 @@
+.button-bottom-left {
+  position: fixed;
+  bottom: 80px;
+}
+
+.button-bottom-right {
+  position: fixed;
+  bottom: 80px;
+  right: 120px;
+}
+
 .user-form {
   margin-bottom: 10px;
 
@@ -76,17 +87,4 @@
 
 .delete-token {
   color: #555555;
-}
-
-.delete-account {
-  color: red;
-  margin-left: 135px;
-
-  &:visited {
-    color: red;
-  }
-
-  &:hover {
-    color: rgb(192, 0, 0) !important;
-  }
 }
