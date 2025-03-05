@@ -115,7 +115,8 @@
   .EasyMDEContainer .editor-preview {
     font-size: 1.125rem;
 
-    pre {
+    pre code {
+      display: block;
       background-color: #fdf6e3;
       padding: 1rem;
     }
@@ -131,7 +132,8 @@
   background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-  pre {
+  pre code {
+    display: block;
     background-color: #fdf6e3;
     padding: 1rem;
   }
