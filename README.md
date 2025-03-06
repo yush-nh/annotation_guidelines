@@ -1,6 +1,6 @@
 # NearNote
 ## Environment
-* ruby 3.4.1
+* ruby 3.4.2
 * Rails 8.0.1
 * SQLite3 2.5.0
 
